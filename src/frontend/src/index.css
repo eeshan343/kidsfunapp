@@ -1,0 +1,709 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Bubblegum+Sans&family=Varela+Round&family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(94% 0.04 220);
+    --foreground: oklch(20% 0 0);
+    --card: oklch(100% 0 0);
+    --card-foreground: oklch(20% 0 0);
+    --popover: oklch(100% 0 0);
+    --popover-foreground: oklch(20% 0 0);
+    --primary: oklch(90% 0.15 90);
+    --primary-foreground: oklch(20% 0 0);
+    --secondary: oklch(85% 0.08 264);
+    --secondary-foreground: oklch(20% 0 0);
+    --muted: oklch(92% 0.02 264);
+    --muted-foreground: oklch(50% 0.02 264);
+    --accent: oklch(75% 0.2 330);
+    --accent-foreground: oklch(20% 0 0);
+    --destructive: oklch(60% 0.25 25);
+    --destructive-foreground: oklch(100% 0 0);
+    --border: oklch(85% 0.02 264);
+    --input: oklch(85% 0.02 264);
+    --ring: oklch(90% 0.15 90);
+    --radius: 0.5rem;
+    --neon-glow: oklch(70% 0.3 264);
+    --neon-pink: oklch(70% 0.25 330);
+    --neon-yellow: oklch(85% 0.2 90);
+    --neon-cyan: oklch(75% 0.2 200);
+    --chart-1: oklch(60% 0.25 264);
+    --chart-2: oklch(70% 0.25 330);
+    --chart-3: oklch(75% 0.2 200);
+    --chart-4: oklch(85% 0.2 90);
+    --chart-5: oklch(65% 0.25 150);
+    --scary: oklch(55% 0.22 350);
+    --scary-foreground: oklch(98% 0.01 350);
+    --scary-glow: oklch(60% 0.28 350);
+    --admin-claim: oklch(78% 0.18 75);
+    --admin-claim-foreground: oklch(20% 0.02 75);
+    --admin-claim-glow: oklch(82% 0.22 75);
+  }
+
+  .dark {
+    --background: oklch(15% 0.02 264);
+    --foreground: oklch(98% 0.01 264);
+    --card: oklch(18% 0.02 264);
+    --card-foreground: oklch(98% 0.01 264);
+    --popover: oklch(15% 0.02 264);
+    --popover-foreground: oklch(98% 0.01 264);
+    --primary: oklch(70% 0.25 264);
+    --primary-foreground: oklch(15% 0.02 264);
+    --secondary: oklch(25% 0.08 264);
+    --secondary-foreground: oklch(98% 0.01 264);
+    --muted: oklch(25% 0.02 264);
+    --muted-foreground: oklch(65% 0.02 264);
+    --accent: oklch(75% 0.2 330);
+    --accent-foreground: oklch(98% 0.01 264);
+    --destructive: oklch(60% 0.25 25);
+    --destructive-foreground: oklch(98% 0.01 264);
+    --border: oklch(30% 0.02 264);
+    --input: oklch(30% 0.02 264);
+    --ring: oklch(70% 0.25 264);
+    --neon-glow: oklch(75% 0.3 264);
+    --neon-pink: oklch(75% 0.25 330);
+    --neon-yellow: oklch(90% 0.2 90);
+    --neon-cyan: oklch(80% 0.2 200);
+    --chart-1: oklch(70% 0.25 264);
+    --chart-2: oklch(75% 0.25 330);
+    --chart-3: oklch(80% 0.2 200);
+    --chart-4: oklch(90% 0.2 90);
+    --chart-5: oklch(70% 0.25 150);
+    --scary: oklch(62% 0.26 350);
+    --scary-foreground: oklch(98% 0.01 350);
+    --scary-glow: oklch(68% 0.3 350);
+    --admin-claim: oklch(82% 0.2 75);
+    --admin-claim-foreground: oklch(15% 0.02 75);
+    --admin-claim-glow: oklch(86% 0.24 75);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Varela Round", "Poppins", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    text-shadow: 0 0 10px var(--neon-glow), 0 0 20px var(--neon-glow), 0 0 30px
+      var(--neon-glow);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 10px var(--neon-glow), 0 0 20px var(--neon-glow);
+  }
+
+  .neon-pulse {
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes neon-pulse {
+    0%,
+    100% {
+      text-shadow: 0 0 10px var(--neon-glow), 0 0 20px var(--neon-glow), 0 0
+        30px var(--neon-glow);
+    }
+    50% {
+      text-shadow: 0 0 20px var(--neon-glow), 0 0 30px var(--neon-glow), 0 0
+        40px var(--neon-glow), 0 0 50px var(--neon-glow);
+    }
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Enhanced 3D Avatar Styles */
+  .avatar-3d-container {
+    width: 100%;
+    aspect-ratio: 1;
+    min-height: var(--avatar-3d-min, 300px);
+    touch-action: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .avatar-3d-container {
+      min-height: var(--avatar-3d-min-md, 400px);
+    }
+  }
+
+  .perspective-container {
+    perspective: 1200px;
+    perspective-origin: center center;
+  }
+
+  .avatar-3d-figure {
+    position: relative;
+    width: 120px;
+    height: 280px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  }
+
+  .avatar-part {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    box-shadow:
+      inset -3px -3px 8px rgba(0, 0, 0, 0.3),
+      inset 3px 3px 8px rgba(255, 255, 255, 0.4),
+      4px 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .avatar-part::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* Head with enhanced depth */
+  .avatar-part.head {
+    width: 60px;
+    height: 60px;
+    top: 30px;
+    z-index: 10;
+    transform: translateX(-50%) translateZ(20px);
+  }
+
+  .face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .eyes {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .eye {
+    width: 8px;
+    height: 8px;
+    background: #2c3e50;
+    border-radius: 50%;
+    box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.5), 1px 1px 2px
+      rgba(255, 255, 255, 0.3);
+  }
+
+  .mouth {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: #2c3e50;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hair with depth layering */
+  .avatar-part.hair {
+    width: 65px;
+    height: 30px;
+    top: 5px;
+    z-index: 11;
+    transform: translateX(-50%) translateZ(22px);
+  }
+
+  .hair-full {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .hair-curly {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 0;
+  }
+
+  .hair-spiky {
+    width: 35px;
+    height: 50px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: -10px;
+  }
+
+  .hair-long {
+    width: 65px;
+    height: 80px;
+    top: 5px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .hair-mohawk {
+    width: 30px;
+    height: 60px;
+    top: -15px;
+    clip-path: polygon(50% 0%, 20% 100%, 80% 100%);
+  }
+
+  .hair-ponytail {
+    width: 65px;
+    height: 45px;
+    top: 5px;
+    border-radius: 8px 8px 50% 50%;
+  }
+
+  .hair-none {
+    display: none;
+  }
+
+  /* Headwear with enhanced 3D */
+  .avatar-part.headwear {
+    z-index: 12;
+    left: 50%;
+    transform: translateX(-50%) translateZ(24px);
+  }
+
+  .crown-spikes {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .crown-spike {
+    width: 8px;
+    height: 15px;
+    background: inherit;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  }
+
+  .cap-visor {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 5px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Body — true 3D mesh (six faces) so depth is visible on all sides.
+     The body is positioned by .avatar-part.body (anchor); the six faces are
+     laid out inside it as a CSS 3D box using translateZ. */
+  .avatar-part.body {
+    width: 70px;
+    height: 80px;
+    top: 95px;
+    z-index: 5;
+    transform: translateX(-50%) translateZ(10px);
+    transform-style: preserve-3d;
+    /* The anchor itself is invisible — only the faces render. */
+    background: transparent !important;
+    box-shadow: none;
+  }
+
+  /* The anchor's ::before gradient overlay is not wanted on a 3D box. */
+  .avatar-part.body::before {
+    display: none;
+  }
+
+  .body-3d {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  .body-face {
+    position: absolute;
+    border-radius: 6px;
+    box-shadow: inset -3px -3px 8px rgba(0, 0, 0, 0.3), inset 3px 3px 8px
+      rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+  }
+
+  .body-face::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* Front and back faces — full body width/height, pushed forward/back. */
+  .body-face.front {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateZ(14px);
+  }
+
+  .body-face.back {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg) translateZ(14px);
+  }
+
+  /* Left and right faces — depth slabs, pushed to the sides. */
+  .body-face.left {
+    width: 28px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: rotateY(-90deg) translateZ(14px);
+  }
+
+  .body-face.right {
+    width: 28px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: auto;
+    transform: rotateY(90deg) translateZ(14px);
+  }
+
+  /* Top and bottom faces — depth caps. */
+  .body-face.top {
+    width: 100%;
+    height: 28px;
+    top: 0;
+    left: 0;
+    transform: rotateX(90deg) translateZ(14px);
+  }
+
+  .body-face.bottom {
+    width: 100%;
+    height: 28px;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    transform: rotateX(-90deg) translateZ(14px);
+  }
+
+  /* Candle flicker animation for the Birthday Cake Maker decorate step. */
+  @keyframes flicker {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-1px) scale(1.05);
+      opacity: 0.85;
+    }
+  }
+
+  /* Arms with depth separation */
+  .avatar-part.arm {
+    width: 20px;
+    height: 70px;
+    top: 100px;
+    z-index: 4;
+  }
+
+  .arm-left {
+    left: 10px;
+    transform: translateX(0) translateZ(8px) rotateY(-5deg);
+  }
+
+  .arm-right {
+    left: auto;
+    right: 10px;
+    transform: translateX(0) translateZ(8px) rotateY(5deg);
+  }
+
+  /* Legs with depth */
+  .avatar-part.leg {
+    width: 25px;
+    height: 80px;
+    top: 180px;
+    z-index: 3;
+  }
+
+  .leg-left {
+    left: 30px;
+    transform: translateX(0) translateZ(5px);
+  }
+
+  .leg-right {
+    left: auto;
+    right: 30px;
+    transform: translateX(0) translateZ(5px);
+  }
+
+  /* Shoes with enhanced depth */
+  .avatar-part.shoe {
+    width: 28px;
+    height: 10px;
+    top: 265px;
+    z-index: 2;
+    border-radius: 4px 4px 8px 8px;
+  }
+
+  .shoe-left {
+    left: 29px;
+    transform: translateX(0) translateZ(3px);
+  }
+
+  .shoe-right {
+    left: auto;
+    right: 29px;
+    transform: translateX(0) translateZ(3px);
+  }
+
+  /* Pet Reaction Animations */
+  .pet-reaction-bounce {
+    animation: pet-bounce 0.6s ease-in-out;
+  }
+
+  @keyframes pet-bounce {
+    0%,
+    100% {
+      transform: scale(1) translateY(0);
+    }
+    25% {
+      transform: scale(1.15) translateY(-20px);
+    }
+    50% {
+      transform: scale(1.1) translateY(-10px);
+    }
+    75% {
+      transform: scale(1.05) translateY(-5px);
+    }
+  }
+
+  .pet-reaction-feed {
+    position: relative;
+    animation: pet-feed-pulse 1.5s ease-out;
+  }
+
+  @keyframes pet-feed-pulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    20% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    80% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  }
+
+  .pet-reaction-play {
+    position: relative;
+    animation: pet-play-wiggle 1.5s ease-out;
+  }
+
+  @keyframes pet-play-wiggle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.5);
+    }
+    10% {
+      opacity: 1;
+      transform: rotate(-10deg) scale(1.1);
+    }
+    20% {
+      opacity: 1;
+      transform: rotate(10deg) scale(1.2);
+    }
+    30% {
+      transform: rotate(-8deg) scale(1.1);
+    }
+    40% {
+      transform: rotate(8deg) scale(1);
+    }
+    50% {
+      transform: rotate(-5deg) scale(1);
+    }
+    60% {
+      transform: rotate(5deg) scale(1);
+    }
+    70% {
+      transform: rotate(-3deg) scale(1);
+    }
+    80% {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  .pet-reaction-sparkle {
+    animation: pet-sparkle 1.2s ease-out;
+  }
+
+  @keyframes pet-sparkle {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    30% {
+      opacity: 1;
+      transform: scale(1.3) rotate(180deg);
+    }
+    70% {
+      opacity: 1;
+      transform: scale(1) rotate(360deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5) rotate(540deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  /* Admin-claim page — one-time Principal claim */
+  .admin-claim-glow {
+    text-shadow: 0 0 10px var(--admin-claim-glow), 0 0 20px
+      var(--admin-claim-glow);
+  }
+
+  .admin-claim-border {
+    box-shadow: 0 0 12px var(--admin-claim-glow), 0 0 24px
+      var(--admin-claim-glow);
+  }
+
+  .admin-claim-pulse {
+    animation: admin-claim-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes admin-claim-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 12px var(--admin-claim-glow), 0 0 24px
+        var(--admin-claim-glow);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--admin-claim-glow), 0 0 40px
+        var(--admin-claim-glow), 0 0 60px var(--admin-claim-glow);
+    }
+  }
+
+  /* Scary category accent — merged Games Hub */
+  .scary-glow {
+    text-shadow: 0 0 10px var(--scary-glow), 0 0 20px var(--scary-glow), 0 0
+      30px var(--scary-glow);
+  }
+
+  .scary-border {
+    box-shadow: 0 0 12px var(--scary-glow), 0 0 24px var(--scary-glow);
+  }
+
+  .scary-flicker {
+    animation: scary-flicker 3s linear infinite;
+  }
+
+  @keyframes scary-flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    41% {
+      opacity: 1;
+    }
+    42% {
+      opacity: 0.6;
+    }
+    43% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0.4;
+    }
+    46% {
+      opacity: 1;
+    }
+    77% {
+      opacity: 1;
+    }
+    78% {
+      opacity: 0.5;
+    }
+    79% {
+      opacity: 1;
+    }
+  }
+}

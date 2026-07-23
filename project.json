@@ -1,0 +1,19 @@
+{
+  "overview": "Kids entertainment and education platform on ICP with neon glow theme, virtual pets, friends, chat, and an admin panel.",
+  "features": [
+    "3D avatar customization that fits neatly in the welcome card",
+    "Save avatar without errors for new users",
+    "See who is online and send them friend requests",
+    "Admin claim button and admin panel that persist across updates"
+  ],
+  "category": "productivity",
+  "tags": [
+    "kids",
+    "education",
+    "entertainment",
+    "virtual-pets",
+    "neon",
+    "icp"
+  ],
+  "last_updated": "2026-07-06T02:33:48.964Z"
+}
